@@ -1,2 +1,46 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#include<iostream>
+using namespace std;
+class node
+{
+    public:
+    int data;
+    node* next;
+    node(int data)
+    {
+        this->data=data;
+        next=0;
+    }
+}*first=NULL;
+void create(int arr[],int n)
+{
+    first=new node(arr[0]);
+    node* t;
+    node* last=first;
+    for(int i=1;i<n;i++)
+    {
+        t=last;
+        last->next=new node(arr[i]);
+        last=t->next; 
+    }
+}
+void display(node* a)
+{
+    cout<<endl;
+    while(a!=NULL)
+    {
+        cout<<a->data<<" ";
+        a=a->next;
+    }
+    cout<<endl;
+}
+void swap(node* a)
+{
+    
+}
+int main()
+{
+    int arr[]={1,3,5,7};
+    create(arr,4);
+    display(first);
+    return 0;
+}
